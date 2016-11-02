@@ -83,7 +83,7 @@ class AppTest < Minitest::Test
 
     response = patch("/update/employee?name=Dan", update_data.to_json, { "CONTENT_TYPE" => "application/json" })
     assert response.ok?
-    
+
     dan = Employee.find_by(name: "Dan")
     employee =  JSON.parse(response.body)
     assert_equal "danger@gmail.com", dan.email
